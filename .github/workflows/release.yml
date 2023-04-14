@@ -13,13 +13,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: bazelbuild/setup-bazelisk@v2
-      - name: Mount bazel cache
+      - name: Cache Bazel
         uses: actions/cache@v3
         with:
           path: |
-            ~/.cache/bazelisk
             ~/.cache/bazel
-          key: bazel
+          key: ${{ runner.os }}-bazel-${{ hashFiles('.bazelversion', '.bazelrc', 'WORKSPACE', 'WORKSPACE.bazel', 'MODULE.bazel') }}
+          restore-keys: |
+            ${{ runner.os }}-bazel-
       - run: bazelisk build //...
       - run: bazelisk test //...
       - name: Log in to the Container registry
@@ -30,6 +31,6 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Release Images
         run: |
-          chmod +x ./github/scripts/release.sh
-          ./github/scripts/release.sh
+          chmod +x ./.github/scripts/release.sh
+          ./.github/scripts/release.sh
         shell: bash
