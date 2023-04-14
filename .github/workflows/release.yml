@@ -16,7 +16,9 @@ jobs:
       - name: Mount bazel cache
         uses: actions/cache@v3
         with:
-          path: "~/.cache/bazel"
+          path: |
+            ~/.cache/bazelisk
+            ~/.cache/bazel
           key: bazel
       - run: bazelisk build //...
       - run: bazelisk test //...
@@ -27,5 +29,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Release Images
-        run: ./.github/scripts/release.sh
+        run: |
+          chmod +x ./github/scripts/release.sh
+          ./github/scripts/release.sh
         shell: bash
