@@ -1,4 +1,6 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+load("@io_bazel_rules_docker//go:image.bzl", "go_image")
+load("@io_bazel_rules_docker//container:container.bzl", "container_image", "container_push")
 
 go_library(
     name = "ping_lib",
@@ -8,8 +10,19 @@ go_library(
     deps = ["@com_github_gin_gonic_gin//:go_default_library"],
 )
 
-go_binary(
+go_image(
     name = "ping",
     embed = [":ping_lib"],
-    visibility = ["//visibility:public"],
+    goarch = "arm64",
+    goos = "linux",
+    pure = "on",
+)
+
+container_push(
+    name = "release-latest",
+    format = "Docker",
+    image = ":ping",
+    registry = "ghcr.io",
+    repository = "mholtzscher/ping",
+    tag = "latest",
 )
