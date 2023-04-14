@@ -26,3 +26,12 @@ container_push(
     repository = "mholtzscher/fun-with-monorepos/ping",
     tag = "latest",
 )
+
+container_push(
+    name = "release",
+    format = "Docker",
+    image = ":ping",
+    registry = "ghcr.io",
+    repository = "mholtzscher/fun-with-monorepos/ping",
+    tag = "{GITHUB_SHA}",
+)

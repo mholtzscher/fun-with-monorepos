@@ -29,3 +29,12 @@ container_push(
     repository = "mholtzscher/fun-with-monorepos/numbers",
     tag = "latest",
 )
+
+container_push(
+    name = "release",
+    format = "Docker",
+    image = ":numbers",
+    registry = "ghcr.io",
+    repository = "mholtzscher/fun-with-monorepos/numbers",
+    tag = "{GITHUB_SHA}",
+)
