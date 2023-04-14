@@ -2,5 +2,5 @@
 CONTAINERS=`bazelisk query --output=label 'kind("container_push", //...)'`
 
 for container in $CONTAINERS; do
-  bazelisk run -- ${container}
+  bazelisk run ${container} --stamp --workspace_status_command="echo GITHUB_SHA $GITHUB_SHA"
 done
