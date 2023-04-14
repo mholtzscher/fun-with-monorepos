@@ -26,6 +26,6 @@ container_push(
     format = "Docker",
     image = ":numbers",
     registry = "ghcr.io",
-    repository = "mholtzscher/numbers",
+    repository = "mholtzscher/fun-with-monorepos/numbers",
     tag = "latest",
 )
