@@ -10,21 +10,29 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: bazelbuild/setup-bazelisk@v2
-      - name: Mount bazel cache
+      - name: Cache Bazel
         uses: actions/cache@v3
         with:
-          path: "~/.cache/bazel"
-          key: bazel
-      - run: bazelisk build //...
+          path: |
+            ~/.cache/bazel
+          key: ${{ runner.os }}-bazel-${{ hashFiles('.bazelversion', '.bazelrc', 'WORKSPACE', 'WORKSPACE.bazel', 'MODULE.bazel') }}
+          restore-keys: |
+            ${{ runner.os }}-bazel-
+      - name: Build
+        run: bazelisk build //...
 
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: bazelbuild/setup-bazelisk@v2
-      - name: Mount bazel cache
+      - name: Cache Bazel
         uses: actions/cache@v3
         with:
-          path: "~/.cache/bazel"
-          key: bazel
-      - run: bazelisk test //...
+          path: |
+            ~/.cache/bazel
+          key: ${{ runner.os }}-bazel-${{ hashFiles('.bazelversion', '.bazelrc', 'WORKSPACE', 'WORKSPACE.bazel', 'MODULE.bazel') }}
+          restore-keys: |
+            ${{ runner.os }}-bazel-
+      - name: Test
+        run: bazelisk test //...

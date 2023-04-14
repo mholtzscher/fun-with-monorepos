@@ -21,8 +21,10 @@ jobs:
           key: ${{ runner.os }}-bazel-${{ hashFiles('.bazelversion', '.bazelrc', 'WORKSPACE', 'WORKSPACE.bazel', 'MODULE.bazel') }}
           restore-keys: |
             ${{ runner.os }}-bazel-
-      - run: bazelisk build //...
-      - run: bazelisk test //...
+      - name: Build
+        run: bazelisk build //...
+      - name: Test
+        run: bazelisk test //...
       - name: Log in to the Container registry
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
         with:
@@ -32,5 +34,5 @@ jobs:
       - name: Release Images
         run: |
           chmod +x ./.github/scripts/release.sh
-          ./.github/scripts/release.sh
+          GITHUB_SHA=$GITHUB_SHA ./.github/scripts/release.sh
         shell: bash
