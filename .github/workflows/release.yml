@@ -6,6 +6,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
+  SHORT_SHA: $(echo ${{ github.sha }} | cut -c 1-8)
 
 jobs:
   release:
@@ -34,5 +35,5 @@ jobs:
       - name: Release Images
         run: |
           chmod +x ./.github/scripts/release.sh
-          GITHUB_SHA=$GITHUB_SHA ./.github/scripts/release.sh
+          ./.github/scripts/release.sh
         shell: bash
