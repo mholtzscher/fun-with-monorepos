@@ -26,5 +26,6 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - run: bazelisk run //apps/ping:release-latest
-      - run: bazelisk run //apps/numbers:release-latest
+      - name: Release Images
+        run: ./.github/scripts/release.sh
+        shell: bash
