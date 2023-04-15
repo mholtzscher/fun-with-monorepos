@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/mholtzscher/fun-with-monorepos/compare/v1.2.0...v1.2.1) (2023-04-15)
+
+
+### Bug Fixes
+
+* relese process ([345286d](https://github.com/mholtzscher/fun-with-monorepos/commit/345286d295d4d79cb46ae2e002e69685c8b8fed8))
+
 ## [1.2.0](https://github.com/mholtzscher/fun-with-monorepos/compare/v1.1.1...v1.2.0) (2023-04-15)
 
 
