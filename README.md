@@ -43,3 +43,20 @@ bazelisk run //:gazelle-update-repos
 # Register new files with Bazel via Gazelle
 bazelisk run //:gazelle
 ```
+
+# TODOs / Ideas
+- [ ] Connect-go service
+- [ ] Buf lint and breaking detection
+- [ ] Generate Tech Docs
+- [ ] Link packages and containers to releases (change image versioning to git tags?)
+- [ ] Swagger spec generation
+- [ ] GRPC clients in multiple languages
+- [x] Setup golangci-lint
+- [x] Setup release-please
+- [x] Setup Bazel build and test
+
+# Resources Used For Developing The Monorepo
+* https://bazelbuild.github.io/rules_nodejs/stamping.html
+* https://github.com/bazelbuild/rules_docker#stamping
+* https://github.com/google-github-actions/release-please-action
+* https://github.com/golangci/golangci-lint-action
