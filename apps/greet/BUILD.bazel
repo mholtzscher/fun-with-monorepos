@@ -1,0 +1,43 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+load("@io_bazel_rules_docker//go:image.bzl", "go_image")
+load("@io_bazel_rules_docker//container:container.bzl", "container_image", "container_push")
+
+go_library(
+    name = "greet_lib",
+    srcs = ["greet.go"],
+    importpath = "github.com/mholtzscher/fun-with-monorepos/apps/greet",
+    visibility = ["//visibility:private"],
+    deps = [
+        "//gen/greet/v1/greetv1connect",
+        "//gen/greet/v1:greet",
+        "@com_github_bufbuild_connect_go//:connect-go",
+        "@org_golang_x_net//http2",
+        "@org_golang_x_net//http2/h2c",
+    ],
+)
+
+go_image(
+    name = "greet",
+    embed = [":greet_lib"],
+    goarch = "arm64",
+    goos = "linux",
+    pure = "on",
+)
+
+container_push(
+    name = "release-latest",
+    format = "Docker",
+    image = ":greet",
+    registry = "ghcr.io",
+    repository = "mholtzscher/fun-with-monorepos/greet",
+    tag = "latest",
+)
+
+container_push(
+    name = "release",
+    format = "Docker",
+    image = ":greet",
+    registry = "ghcr.io",
+    repository = "mholtzscher/fun-with-monorepos/greet",
+    tag = "{RELEASE_TAG}",
+)

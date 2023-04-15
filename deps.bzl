@@ -2,6 +2,14 @@ load("@bazel_gazelle//:deps.bzl", "go_repository")
 
 def go_dependencies():
     go_repository(
+        name = "com_github_bufbuild_connect_go",
+        build_file_proto_mode = "disable_global",
+        importpath = "github.com/bufbuild/connect-go",
+        sum = "h1:OCEB8JuEuvcY5lEKZCQE95CUscqkDtLnQceNhDgi92k=",
+        version = "v1.6.0",
+    )
+
+    go_repository(
         name = "com_github_bytedance_sonic",
         build_file_proto_mode = "disable_global",
         importpath = "github.com/bytedance/sonic",
@@ -82,8 +90,8 @@ def go_dependencies():
         name = "com_github_google_go_cmp",
         build_file_proto_mode = "disable_global",
         importpath = "github.com/google/go-cmp",
-        sum = "h1:Khx7svrCpmxxtHBq5j2mp/xVjsi8hQMfNLvJFAlrGgU=",
-        version = "v0.5.5",
+        sum = "h1:O2Tfq5qg4qc4AmwVlvv0oLiVAGB7enBSJ2x2DqQFi38=",
+        version = "v0.5.9",
     )
     go_repository(
         name = "com_github_google_gofuzz",
