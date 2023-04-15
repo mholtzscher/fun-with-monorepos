@@ -1,0 +1,12 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "greetv1connect",
+    srcs = ["greet.connect.go"],
+    importpath = "github.com/mholtzscher/fun-with-monorepos/gen/greet/v1/greetv1connect",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//gen/greet/v1:greet",
+        "@com_github_bufbuild_connect_go//:connect-go",
+    ],
+)
