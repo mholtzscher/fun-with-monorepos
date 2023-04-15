@@ -20,6 +20,20 @@ func main() {
 			"result": math.Factorial(num),
 		})
 	})
+
+	r.GET("/is_prime/:num", func(c *gin.Context) {
+		num, err := strconv.Atoi(c.Param("num"))
+		if err != nil {
+			c.JSON(400, gin.H{
+				"error": "invalid number",
+			})
+			return
+		}
+		c.JSON(200, gin.H{
+			"result": math.IsPrime(num),
+		})
+	})
+
 	err := r.Run()
 	if err != nil {
 		return
