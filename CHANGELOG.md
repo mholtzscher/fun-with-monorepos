@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/mholtzscher/fun-with-monorepos/compare/v1.2.1...v1.3.0) (2023-04-15)
+
+
+### Features
+
+* setup greet service ([4c90915](https://github.com/mholtzscher/fun-with-monorepos/commit/4c909151c4f7fe861ca1c28e59909c5edfcf06f9))
+
 ## [1.2.1](https://github.com/mholtzscher/fun-with-monorepos/compare/v1.2.0...v1.2.1) (2023-04-15)
 
 
