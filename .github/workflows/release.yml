@@ -1,12 +1,12 @@
 name: Release
 on:
   push:
-    branches:
-      - main
+    tags:
+      - '*'
 
 env:
   REGISTRY: ghcr.io
-  SHORT_SHA: $(echo ${{ github.sha }} | cut -c 1-8)
+  RELEASE_TAG: ${{ github.ref_name }}
 
 jobs:
   release:

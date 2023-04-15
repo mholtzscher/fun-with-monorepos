@@ -33,5 +33,5 @@ container_push(
     image = ":ping",
     registry = "ghcr.io",
     repository = "mholtzscher/fun-with-monorepos/ping",
-    tag = "{GITHUB_SHA}",
+    tag = "{RELEASE_TAG}",
 )

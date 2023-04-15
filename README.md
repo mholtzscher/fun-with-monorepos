@@ -48,7 +48,8 @@ bazelisk run //:gazelle
 - [ ] Connect-go service
 - [ ] Buf lint and breaking detection
 - [ ] Generate Tech Docs
-- [ ] Link packages and containers to releases (change image versioning to git tags?)
+- [x] Change image versioning to git tags
+- [ ] Link packages and containers to releases
 - [ ] Swagger spec generation
 - [ ] GRPC clients in multiple languages
 - [x] Setup golangci-lint
@@ -60,3 +61,4 @@ bazelisk run //:gazelle
 * https://github.com/bazelbuild/rules_docker#stamping
 * https://github.com/google-github-actions/release-please-action
 * https://github.com/golangci/golangci-lint-action
+* https://github.com/orgs/community/discussions/26686

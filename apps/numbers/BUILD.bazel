@@ -36,5 +36,5 @@ container_push(
     image = ":numbers",
     registry = "ghcr.io",
     repository = "mholtzscher/fun-with-monorepos/numbers",
-    tag = "{GITHUB_SHA}",
+    tag = "{RELEASE_TAG}",
 )
