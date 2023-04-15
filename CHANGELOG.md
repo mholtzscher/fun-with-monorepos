@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/mholtzscher/fun-with-monorepos/compare/v1.1.0...v1.1.1) (2023-04-15)
+
+
+### Bug Fixes
+
+* **math:** make IsPrime visible outside package ([6463bfb](https://github.com/mholtzscher/fun-with-monorepos/commit/6463bfb561d025a795b2b8b39c40aa39869659bf))
+
 ## [1.1.0](https://github.com/mholtzscher/fun-with-monorepos/compare/v1.0.1...v1.1.0) (2023-04-15)
 
 
