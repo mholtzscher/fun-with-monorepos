@@ -62,3 +62,5 @@ bazelisk run //:gazelle
 * https://github.com/google-github-actions/release-please-action
 * https://github.com/golangci/golangci-lint-action
 * https://github.com/orgs/community/discussions/26686
+* https://github.com/orgs/community/discussions/27028
+* https://github.com/orgs/community/discussions/25617
