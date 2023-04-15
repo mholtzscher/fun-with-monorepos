@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/mholtzscher/fun-with-monorepos/compare/v1.1.1...v1.2.0) (2023-04-15)
+
+
+### Features
+
+* **numbers:** add is_prime endpoint ([e77ca1f](https://github.com/mholtzscher/fun-with-monorepos/commit/e77ca1f195c2cfb1113ca0d3f9c04e776a7d247c))
+
 ## [1.1.1](https://github.com/mholtzscher/fun-with-monorepos/compare/v1.1.0...v1.1.1) (2023-04-15)
 
 
