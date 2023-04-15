@@ -1,33 +1,39 @@
 # fun-with-monorepos
 
-Test repo for fun with monorepos using Go and Bazel!
+An opinionated test repo for fun with monorepos using Go and Bazel!
 
+## Structure
 * Go packages reside at the root of the repo, and Bazel is used to build and test them.
 * The `apps` directory contains Go applications that depend on the packages in the root of the repo.
-  * Each of the applications is built and tested using Bazel and produces a Docker image.
+  * Apps could include services, CLI tools, etc. but should produce a binary or container image.
 
 
 ## Setup
 
 ```shell
-brew install bazelisk go
+brew install bazelisk go golangci-lint
 ```
+## Developing & Contributing
 
-## Build
+### Build
 
 ```shell
 bazelisk build //...
 ```
 
-## Test
+### Test
 
 ```shell
 bazelisk test //...
 ```
 
-## Developing
+### Linting Go Code
 
-### Adding a new Go package
+```shell
+golangci-lint run
+```
+
+### Adding A New Go package
 
 ```shell
 # Install new package as normal
@@ -43,6 +49,11 @@ bazelisk run //:gazelle-update-repos
 # Register new files with Bazel via Gazelle
 bazelisk run //:gazelle
 ```
+
+### Committing Changes
+Commits should follow conventional commits. See [here](https://www.conventionalcommits.org/en/v1.0.0/) for more information.
+
+The repo is configured to use release-please to automatically create releases and changelogs based on the conventional commit messages. See [here](https://github.com/googleapis/release-please) for more information.
 
 # TODOs / Ideas
 - [ ] Connect-go service

@@ -17,4 +17,4 @@ jobs:
         with:
           release-type: go
           package-name: release-please-action
-          token: ${{ secrets.PAT }}
+          token: ${{ secrets.PAT }} # Has to be a PAT, not GITHUB_TOKEN or the downstream release job won't run
