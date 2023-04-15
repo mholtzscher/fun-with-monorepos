@@ -44,8 +44,8 @@ func TestIsPrime(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if isPrime(tt.input) != tt.expected {
-				t.Errorf("isPrime(%d) = %v; want %v", tt.input, !tt.expected, tt.expected)
+			if IsPrime(tt.input) != tt.expected {
+				t.Errorf("IsPrime(%d) = %v; want %v", tt.input, !tt.expected, tt.expected)
 			}
 		})
 	}
