@@ -64,3 +64,4 @@ bazelisk run //:gazelle
 * https://github.com/orgs/community/discussions/26686
 * https://github.com/orgs/community/discussions/27028
 * https://github.com/orgs/community/discussions/25617
+* https://docs.github.com/en/actions/using-workflows/triggering-a-workflow#triggering-a-workflow-from-a-workflow
